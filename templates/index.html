@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="mb-3">Products</h3>
+<div class="row g-3">
+  {% for product in products %}
+  <div class="col-md-6">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5>{{ product.name }}</h5>
+        <p class="mb-2">250g: Rs. {{ product.price_250g }}</p>
+        <p class="mb-2">500g: Rs. {{ product.price_500g }}</p>
+        <p class="mb-2">750g: Rs. {{ product.price_750g }}</p>
+        <p class="mb-3">1kg: Rs. {{ product.price_1kg }}</p>
+
+        <form method="post" action="{{ url_for('user.add_to_cart') }}" class="row g-2">
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <div class="col-6">
+            <select name="weight" class="form-select">
+              <option value="250g">250g</option>
+              <option value="500g">500g</option>
+              <option value="750g">750g</option>
+              <option value="1kg">1kg</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <input type="number" name="quantity" value="1" min="1" class="form-control">
+          </div>
+          <div class="col-3">
+            <button class="btn btn-success w-100">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

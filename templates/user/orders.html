@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="mb-3">My Orders</h3>
+<div class="card shadow-sm">
+  <div class="card-body">
+    {% if orders %}
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>#{{ order.id }}</td>
+            <td>{{ order.created_at.strftime('%d-%m-%Y %H:%M') }}</td>
+            <td>{{ order.status }}</td>
+            <td>Rs. {{ "%.2f"|format(order.total_amount) }}</td>
+            <td>
+              <a href="{{ url_for('user.invoice', order_id=order.id) }}" class="btn btn-sm btn-outline-primary">
+                Download Invoice
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="mb-0">No orders yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

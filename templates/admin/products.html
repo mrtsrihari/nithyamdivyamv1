@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="mb-3">Admin - Products</h3>
+<div class="card shadow-sm">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>250g</th>
+            <th>500g</th>
+            <th>750g</th>
+            <th>1kg</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in products %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>Rs. {{ p.price_250g }}</td>
+            <td>Rs. {{ p.price_500g }}</td>
+            <td>Rs. {{ p.price_750g }}</td>
+            <td>Rs. {{ p.price_1kg }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

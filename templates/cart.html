@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="mb-3">Cart</h3>
+<div class="card shadow-sm">
+  <div class="card-body">
+    {% if cart_items %}
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Weight</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            <td>{{ item.product_name }}</td>
+            <td>{{ item.weight }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>Rs. {{ "%.2f"|format(item.price) }}</td>
+            <td>Rs. {{ "%.2f"|format(item.subtotal) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <h5 class="text-end">Total: Rs. {{ "%.2f"|format(grand_total) }}</h5>
+    <form method="post" action="{{ url_for('user.checkout') }}" class="text-end">
+      <button class="btn btn-primary">Checkout</button>
+    </form>
+    {% else %}
+    <p class="mb-0">Cart is empty.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
