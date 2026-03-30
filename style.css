@@ -1,0 +1,103 @@
+body {
+  background-color: #f6f8fb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5ec, #f8fbff);
+}
+
+.auth-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #1f2937;
+  color: #fff;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #fff;
+}
+
+.sidebar .nav-link {
+  color: #cfd6e1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: #374151;
+  color: #fff;
+}
+
+.content-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.summary-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card .value {
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.table-card,
+.card-soft {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.price-badge {
+  display: inline-block;
+  background: #eef4ff;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.8rem;
+  margin: 2px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.toast-wrap {
+  z-index: 1080;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+}
